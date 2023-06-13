@@ -1,0 +1,138 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  overflow: hidden;
+}
+
+.navbar p {
+  perspective: 1000px;
+  opacity: 0;
+  animation: revealAnimation 2s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+  animation-delay: 1s;
+}
+
+.navbar span {
+  display: inline-block;
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+}
+
+.navbar span:nth-child(odd) {
+  animation: rotateAnimation 2s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+}
+
+.navbar span:nth-child(even) {
+  animation: rotateAnimationReverse 2s cubic-bezier(0.68, -0.6, 0.32, 1.6)
+    forwards;
+}
+
+@keyframes revealAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) rotateX(90deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotateX(90deg);
+  }
+
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes rotateAnimationReverse {
+  0% {
+    transform: rotateX(-90deg);
+  }
+
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.counter {
+  text-align: center;
+  margin-top: 100px;
+  perspective: 1000px;
+}
+
+.counter h1 {
+  font-size: 48px;
+  color: #333;
+  transform-style: preserve-3d;
+}
+
+.counter p {
+  font-size: 24px;
+  color: #666;
+  transform-style: preserve-3d;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  transform-style: preserve-3d;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+@keyframes counterAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 450px) {
+  .navbar {
+    font-size: 60px;
+  }
+
+  .counter {
+    margin-top: 50px;
+  }
+
+  .counter h1 {
+    font-size: 36px;
+  }
+
+  .counter p {
+    font-size: 18px;
+  }
+
+  .btn {
+    font-size: 16px;
+  }
+}
